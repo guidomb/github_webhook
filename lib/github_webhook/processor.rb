@@ -11,7 +11,6 @@ module GithubWebhook::Processor
   def create
     if self.respond_to? event
       self.send event, json_body
-      head(:ok)
     else
       raise NoMethodError.new("GithubWebhooksController##{event} not implemented")
     end
